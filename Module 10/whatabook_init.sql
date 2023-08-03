@@ -3,7 +3,7 @@ Title: whatabook_init.sql
 Author: Zachary Tharp
 Date: August 3, 2023
 Description: The creation of the whatabook database, user, and tables. The insertion of values into those tables
-/*
+*/
 
 -- creating whatabook databse
 CREATE DATABASE whatabook;
@@ -100,20 +100,20 @@ INSERT INTO user (first_name, last_name)
 -- inserting into wishlist records
 INSERT INTO wishlist (user_id, book_id)
 	VALUES (
-		(SELECT user_id FROM user WHERE first_name = 'Aaron'),
+	(SELECT user_id FROM user WHERE first_name = 'Aaron'),
         (SELECET book_id FROM book WHERE book_name = 'Mother Night')
 	);
 
 INSERT INTO wishlist (user_id, book_id)
 	VALUES (
-		(SELECT user_id FROM user WHERE first_name = 'Kirk'),
+	(SELECT user_id FROM user WHERE first_name = 'Kirk'),
         (SELECT book_id FROM book WHERE book_name = 'Slaughter House 5')
 	);
     
 INSERT INTO wishlist (user_id, book_id)
 	VALUES (
-		(SELECT user_id FROM user WHERE first_name = 'Josh'),
-        (SELECT book_id FROM book WHERE book_name = 'The Sun Also Rises)
+	(SELECT user_id FROM user WHERE first_name = 'Josh'),
+        (SELECT book_id FROM book WHERE book_name = 'The Sun Also Rises')
 	);
         
 
