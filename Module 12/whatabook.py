@@ -16,7 +16,7 @@ config = {
     "password": "MySQL8IsGreat!",
     "host": "127.0.0.1",
     "database": "whatabook",
-    "raise_on_warnings": "True"
+    "raise_on_warnings": True
 }
 
 def show_menu():
@@ -66,9 +66,9 @@ def validate_user():
         print ("\n Invalid customer number, terminating program... \n")
         sys.exit(0)
 
-    return user_id 
-except ValueError:
-print ("\n Invalid number, terminating program... \n")
+        return user_id 
+    except ValueError:
+        print ("\n Invalid number, terminating program... \n")
 
 sys.exit(0)
 
@@ -95,9 +95,9 @@ def show_wishlist(_cursor, _user_id):
                     "INNER JOIN book ON wishlist.book_id = book.book_id" +
                     "WHERE user.user_id ={}". format(_user_id))
 
-wishlist = _cursor.fetchall()
+    wishlist = _cursor.fetchall()
 
-print ("\n      -- DISPLAYING WISHLIST ITEMS --")
+    print ("\n      -- DISPLAYING WISHLIST ITEMS --")
 
 for book in wishlist:
     print ("    Book Name:{}\n  Author:{}\n".format(book[4], book[5]))
@@ -109,9 +109,9 @@ def show_books_to_add(_cursor, _user_id):
              "FROM book"
              "WHERE book_id NOT IN (SELECT book_id FROM wishlist WHERE user_id = {}".format(_user_id))
 
-print (query)
+    print (query)
 
-_cursor.execute(query)
+    _cursor.execute(query)
 
 books_to_add = _cursor.fetchall()
 
