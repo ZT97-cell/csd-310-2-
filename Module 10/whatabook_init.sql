@@ -15,10 +15,11 @@ CREATE USER 'whatabook_user'@'locahlhost' IDENTIFIED WITH mysql_native_password 
 GRANT ALL PRIVILEGES ON whatabook.* TO 'whatabook_user'@'localhost';
 
 -- creating the user table
+USE whatabook;
 CREATE TABLE user (
 	user_id INT  NOT NULL  AUTO_INCREMENT,
-    first_name  INT  NOT NULL,
-    last_name  INT  NOT NULL,
+    first_name  VARCHAR(75)  NOT NULL,
+    last_name  VARCHAR(75)  NOT NULL,
     PRIMARY KEY (user_id)
 );
 
